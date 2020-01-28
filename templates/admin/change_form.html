@@ -1,0 +1,12 @@
+{% extends 'admin/change_form.html' %}
+
+
+{% block extrahead %}
+    {% if DEBUG %}
+        <script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+    {% else %}
+        <script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+    {% endif %}
+{{ block.super }}
+{% endblock %}
+
