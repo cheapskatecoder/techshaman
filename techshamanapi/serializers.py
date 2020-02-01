@@ -5,6 +5,11 @@ from blog.models import Article, Category, Series
 class ArticleModelSerializer(ModelSerializer):
     class Meta:
         model = Article
-        fields = ['title', 'slug', 'meta', 'author', 'date_created', 'updated',
-                    'body', 'is_published', 'categories', 'series', 'views']
+        fields = '__all__'
         depth = 2
+
+
+class SeriesModelSerializer(ModelSerializer):
+    class Meta:
+        model = Series
+        fields = '__all__'

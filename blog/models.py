@@ -16,9 +16,10 @@ class Article(models.Model):
     categories = models.ManyToManyField('Category')
     series = models.ManyToManyField('Series')
     views = models.IntegerField(null=True, blank=True)
+    comments = models.ManyToManyField('comment', null=True, blank=True)
 
     def __str__(self):
-        return "{} - {} - {}".format(self.title, self.categories.all(), self.views)
+        return "{} - {}".format(self.title, self.views)
 
     class Meta:
         verbose_name = 'Article'
@@ -30,6 +31,7 @@ class Article(models.Model):
 
 
 class Category(models.Model):
+    category_logo = models.FileField(upload_to='category_logo')
     category = models.CharField(max_length=255)
 
     def __str__(self):
@@ -49,3 +51,16 @@ class Series(models.Model):
     class Meta:
         verbose_name = 'Series'
         verbose_name_plural = 'Series'
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
+    comment = RichTextField(max_length=255)
+
+    def __str__(self):
+        return "{} - {}".format(self.name, self.email)
+
+    class Meta:
+        verbose_name = "Comment"
+        verbose_name_plural = "Comments"

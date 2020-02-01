@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'techshamanapi',
     'rest_framework',
     'django_extensions',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
